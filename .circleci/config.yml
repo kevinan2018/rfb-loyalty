@@ -34,8 +34,8 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install rimraf
-          command: sudo npm install -g rimraf
+          name: npm install 
+          command: sudo npm install -g
       - run: ./gradlew dependencies
 
       - save_cache:
