@@ -38,7 +38,7 @@ jobs:
           command: sudo npm install
       - run:
           name: install webpack
-          command: npm install webpack --save-dev
+          command: sudo npm install webpack --save-dev
 
       - run:
           name: install rimraf
