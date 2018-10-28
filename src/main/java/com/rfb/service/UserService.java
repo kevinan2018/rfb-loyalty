@@ -5,6 +5,7 @@ import com.rfb.domain.Authority;
 import com.rfb.domain.User;
 import com.rfb.repository.AuthorityRepository;
 import com.rfb.repository.UserRepository;
+import com.rfb.security.LoginAttemptService;
 import com.rfb.security.SecurityUtils;
 import com.rfb.service.dto.UserDTO;
 

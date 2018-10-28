@@ -38,6 +38,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new AjaxLogoutSuccessHandler();
     }
 
+    // NOT used
+    @Bean
+    public RfbAjaxAuthenticationFailureHandle ajaxAuthenticationFailureHandler() {
+        return new RfbAjaxAuthenticationFailureHandle();
+    }
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
