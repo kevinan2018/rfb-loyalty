@@ -27,12 +27,12 @@
                 <td>{{rfbEventAttendance.attendanceDate | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="rfbEventAttendance.rfbEventId">
-                        <a [routerLink]="['../rfb-event', rfbEventAttendance.rfbEventId , 'view' ]" >{{rfbEventAttendance.rfbEventId}}</a>
+                        <a [routerLink]="['../rfb-event', rfbEventAttendance.rfbEventId , 'view' ]" >{{rfbEventAttendance.rfbLocationName}} : {{rfbEventAttendance.attendanceDate | date }}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="rfbEventAttendance.rfbUserId">
-                        <a [routerLink]="['../rfb-user', rfbEventAttendance.rfbUserId , 'view' ]" >{{rfbEventAttendance.rfbUserId}}</a>
+                        <a [routerLink]="['../rfb-user', rfbEventAttendance.rfbUserId , 'view' ]" >{{rfbEventAttendance.rfbUsername}}</a>
                     </div>
                 </td>
                 <td class="text-right">

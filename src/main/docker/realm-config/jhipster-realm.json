@@ -67,6 +67,22 @@
         "composite": false,
         "clientRole": false,
         "containerId": "jhipster"
+      },
+      {
+        "id": "4b1eee1a-9239-472a-b54e-8bbf5d46f7c3",
+        "name": "ROLE_ORGANIZER",
+        "description": "Jhipster organizer role",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "jhipster"
+      },
+      {
+        "id": "8bdea7ce-647f-4334-9903-251eff593025",
+        "name": "ROLE_RUNNER",
+        "description": "Jhipster runner role",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "jhipster"
       }
     ],
     "client": {
@@ -339,6 +355,28 @@
       "attributes": {},
       "realmRoles": [
         "ROLE_USER"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "id": "baba7c17-a877-4793-a7ff-52b29f7262b5",
+      "name": "Organizers",
+      "path": "/Organizers",
+      "attributes": {},
+      "realmRoles": [
+          "ROLE_ORGANIZER"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "id": "4b1c5472-0704-4fd5-973d-f8876ea14259",
+      "name": "Runners",
+      "path": "/Runners",
+      "attributes": {},
+      "realmRoles": [
+          "ROLE_RUNNER"
       ],
       "clientRoles": {},
       "subGroups": []

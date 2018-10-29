@@ -80,7 +80,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
-            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
+            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/api/rfb-events/**").hasAnyAuthority(AuthoritiesConstants.ADMIN, AuthoritiesConstants.ORGANIZER)
+            .antMatchers("/api/rfb-location/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/api/rfb-event-attendances/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/api/rfb-users/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/v2/api-docs/**").permitAll()
+            .antMatchers("/swagger-resources/configuration/ui").permitAll()
+            .antMatchers("/swagger-ui/index.html").hasAuthority(AuthoritiesConstants.ADMIN);
 
     }
 }

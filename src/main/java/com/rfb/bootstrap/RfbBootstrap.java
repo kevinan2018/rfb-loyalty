@@ -93,6 +93,8 @@ public class RfbBootstrap implements CommandLineRunner {
         RfbEvent rfbEvent = new RfbEvent();
         rfbEvent.setEventCode(UUID.randomUUID().toString());
         rfbEvent.setEventDate(LocalDate.now()); // will not be on assigned day...
+        rfbEvent.setRfbLocation(rfbLocation);
+
         rfbLocation.addRvbevent(rfbEvent);
         rfbLocationRepository.save(rfbLocation);
         rfbEventRepository.save(rfbEvent);

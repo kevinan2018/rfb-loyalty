@@ -34,7 +34,7 @@ export const rfbLocationRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             defaultSort: 'id,asc',
             pageTitle: 'RfbLocations'
         },
@@ -47,7 +47,7 @@ export const rfbLocationRoute: Routes = [
             rfbLocation: RfbLocationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbLocations'
         },
         canActivate: [UserRouteAccessService]
@@ -59,7 +59,7 @@ export const rfbLocationRoute: Routes = [
             rfbLocation: RfbLocationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbLocations'
         },
         canActivate: [UserRouteAccessService]
@@ -71,7 +71,7 @@ export const rfbLocationRoute: Routes = [
             rfbLocation: RfbLocationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbLocations'
         },
         canActivate: [UserRouteAccessService]
@@ -86,7 +86,7 @@ export const rfbLocationPopupRoute: Routes = [
             rfbLocation: RfbLocationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbLocations'
         },
         canActivate: [UserRouteAccessService],

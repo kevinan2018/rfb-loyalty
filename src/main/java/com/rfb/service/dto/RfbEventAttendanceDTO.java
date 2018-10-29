@@ -1,5 +1,7 @@
 package com.rfb.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,8 +16,10 @@ public class RfbEventAttendanceDTO implements Serializable {
     private LocalDate attendanceDate;
 
     private Long rfbEventId;
+    private String rfbLocationName;
 
     private Long rfbUserId;
+    private String rfbUsername;
 
     public Long getId() {
         return id;
@@ -49,6 +53,23 @@ public class RfbEventAttendanceDTO implements Serializable {
         this.rfbUserId = rfbUserId;
     }
 
+    public String getRfbLocationName() {
+        return rfbLocationName;
+    }
+
+    public void setRfbLocationName(String rfbLocationName) {
+        this.rfbLocationName = rfbLocationName;
+    }
+
+    @JsonProperty("rfbUsername")
+    public String getRfbUserName() {
+        return rfbUsername;
+    }
+
+    public void setRfbUsername(String rfbUsername) {
+        this.rfbUsername = rfbUsername;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -77,6 +98,8 @@ public class RfbEventAttendanceDTO implements Serializable {
             ", attendanceDate='" + getAttendanceDate() + "'" +
             ", rfbEvent=" + getRfbEventId() +
             ", rfbUser=" + getRfbUserId() +
+            ", rfbLocationName=" + getRfbLocationName() +
+            ", rfbUsername=" + getRfbUserName() +
             "}";
     }
 }

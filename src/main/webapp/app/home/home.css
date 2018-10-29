@@ -6,8 +6,8 @@ Main page styles
     /*display: inline-block;
     width: 347px;
     height: 497px;*/
-    background: url('../../content/images/beer-light.jpg') no-repeat;
-    background-size: cover;
+    background: url('../../content/images/beer-light.jpg') repeat;
+    background-size: contain;
 }
 
 .display-4 {

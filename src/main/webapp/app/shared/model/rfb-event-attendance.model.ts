@@ -5,8 +5,17 @@ export interface IRfbEventAttendance {
     attendanceDate?: Moment;
     rfbEventId?: number;
     rfbUserId?: number;
+    rfbUsername?: string;
+    rfbLocationName?: string;
 }
 
 export class RfbEventAttendance implements IRfbEventAttendance {
-    constructor(public id?: number, public attendanceDate?: Moment, public rfbEventId?: number, public rfbUserId?: number) {}
+    constructor(
+        public id?: number,
+        public attendanceDate?: Moment,
+        public rfbEventId?: number,
+        public rfbUserId?: number,
+        public rfbUsername?: string,
+        public rfbLocationName?: string
+    ) {}
 }

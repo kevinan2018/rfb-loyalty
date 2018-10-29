@@ -60,5 +60,35 @@
     },
     "notBefore" : 0,
     "groups" : [ "/Users" ]
+  }, {
+    "id" : "c34d6dce-cb69-437b-b1c5-333e00842df0",
+    "createdTimestamp" : 1540786051610,
+    "username" : "leader",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Leader",
+    "lastName" : "Leader",
+    "email" : "leader@localhost",
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "KVekmjlElCeOWY9A8SAzWnaLfABWLGqvi0VQKpgYINUs3e8qdDZFXd4fYw3LPomAtvC6jZAVSPiYGUIrWdu3Eg==",
+      "salt" : "gpSbpdgV3O8PMRBnP3NX/A==",
+      "hashIterations" : 27500,
+      "counter" : 0,
+      "algorithm" : "pbkdf2-sha256",
+      "digits" : 0,
+      "period" : 0,
+      "createdDate" : 1540786462326,
+      "config" : { }
+    } ],
+    "disableableCredentialTypes" : [ "password" ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access", "uma_authorization" ],
+    "clientRoles" : {
+      "account" : [ "view-profile", "manage-account" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ "/Organizers" ]
   } ]
 }

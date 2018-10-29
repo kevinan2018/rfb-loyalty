@@ -30,7 +30,7 @@ export const rfbUserRoute: Routes = [
         path: 'rfb-user',
         component: RfbUserComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbUsers'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const rfbUserRoute: Routes = [
             rfbUser: RfbUserResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbUsers'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const rfbUserRoute: Routes = [
             rfbUser: RfbUserResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbUsers'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const rfbUserRoute: Routes = [
             rfbUser: RfbUserResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbUsers'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const rfbUserPopupRoute: Routes = [
             rfbUser: RfbUserResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'RfbUsers'
         },
         canActivate: [UserRouteAccessService],
