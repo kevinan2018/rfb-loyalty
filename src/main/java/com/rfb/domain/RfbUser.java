@@ -1,6 +1,7 @@
 package com.rfb.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -29,11 +30,15 @@ public class RfbUser implements Serializable {
     private String username;
 
     @OneToOne    @JoinColumn(unique = true)
-    private RfbLocation homeLocation;
+    private User user;
 
     @OneToMany(mappedBy = "rfbUser")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<RfbEventAttendance> rfbeventAttendances = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private RfbLocation homeLocation;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -56,17 +61,17 @@ public class RfbUser implements Serializable {
         this.username = username;
     }
 
-    public RfbLocation getHomeLocation() {
-        return homeLocation;
+    public User getUser() {
+        return user;
     }
 
-    public RfbUser homeLocation(RfbLocation rfbLocation) {
-        this.homeLocation = rfbLocation;
+    public RfbUser user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setHomeLocation(RfbLocation rfbLocation) {
-        this.homeLocation = rfbLocation;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<RfbEventAttendance> getRfbeventAttendances() {
@@ -92,6 +97,19 @@ public class RfbUser implements Serializable {
 
     public void setRfbeventAttendances(Set<RfbEventAttendance> rfbEventAttendances) {
         this.rfbeventAttendances = rfbEventAttendances;
+    }
+
+    public RfbLocation getHomeLocation() {
+        return homeLocation;
+    }
+
+    public RfbUser homeLocation(RfbLocation rfbLocation) {
+        this.homeLocation = rfbLocation;
+        return this;
+    }
+
+    public void setHomeLocation(RfbLocation rfbLocation) {
+        this.homeLocation = rfbLocation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

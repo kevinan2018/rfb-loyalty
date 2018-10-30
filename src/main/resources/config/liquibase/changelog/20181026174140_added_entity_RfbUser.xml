@@ -25,9 +25,13 @@
             <column name="username" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="home_location_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_rfb_user_home_location_id" />
+            <column name="user_id" type="varchar(100)">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_rfb_user_user_id" />
             </column>
+            <column name="home_location_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

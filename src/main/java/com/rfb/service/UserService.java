@@ -2,8 +2,10 @@ package com.rfb.service;
 
 import com.rfb.config.Constants;
 import com.rfb.domain.Authority;
+import com.rfb.domain.RfbUser;
 import com.rfb.domain.User;
 import com.rfb.repository.AuthorityRepository;
+import com.rfb.repository.RfbUserRepository;
 import com.rfb.repository.UserRepository;
 import com.rfb.security.LoginAttemptService;
 import com.rfb.security.SecurityUtils;
@@ -41,12 +43,16 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
+    private final RfbUserRepository rfbUserRepository;
+
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, AuthorityRepository authorityRepository, CacheManager cacheManager,
+                       RfbUserRepository rfbUserRepository) {
         this.userRepository = userRepository;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
+        this.rfbUserRepository = rfbUserRepository;
     }
 
     /**
@@ -203,8 +209,22 @@ public class UserService {
             }
         } else {
             log.debug("Saving user '{}' in local database", user.getLogin());
-            userRepository.save(user);
+            userRepository.saveAndFlush(user);
             this.clearUserCaches(user);
+
+            //save rfb user
+            Optional<RfbUser> optUser = rfbUserRepository.findByUsername(user.getLogin());
+            RfbUser rfbUser;
+            if (optUser.isPresent()) {
+                rfbUser = optUser.get();
+                rfbUser.setUser(user);
+            } else {
+                rfbUser = new RfbUser();
+                rfbUser.setUsername(user.getLogin());
+                rfbUser.setUser(user);
+            }
+            log.debug("Saving rfb user '{}' in local database", rfbUser.getUsername());
+            rfbUserRepository.save(rfbUser);
         }
         return user;
     }

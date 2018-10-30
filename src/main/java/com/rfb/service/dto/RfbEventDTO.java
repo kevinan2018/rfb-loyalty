@@ -17,6 +17,8 @@ public class RfbEventDTO implements Serializable {
 
     private Long rfbLocationId;
 
+    private String rfbLocationName;
+
     public Long getId() {
         return id;
     }
@@ -47,6 +49,14 @@ public class RfbEventDTO implements Serializable {
 
     public void setRfbLocationId(Long rfbLocationId) {
         this.rfbLocationId = rfbLocationId;
+    }
+
+    public String getRfbLocationName() {
+        return rfbLocationName;
+    }
+
+    public void setRfbLocationName(String rfbLocationName) {
+        this.rfbLocationName = rfbLocationName;
     }
 
     @Override

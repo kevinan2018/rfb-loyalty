@@ -6,6 +6,7 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IRfbUser } from 'app/shared/model/rfb-user.model';
 import { RfbUserService } from './rfb-user.service';
+import { IUser, UserService } from 'app/core';
 import { IRfbLocation } from 'app/shared/model/rfb-location.model';
 import { RfbLocationService } from 'app/entities/rfb-location';
 
@@ -17,11 +18,14 @@ export class RfbUserUpdateComponent implements OnInit {
     rfbUser: IRfbUser;
     isSaving: boolean;
 
-    homelocations: IRfbLocation[];
+    users: IUser[];
+
+    rfblocations: IRfbLocation[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private rfbUserService: RfbUserService,
+        private userService: UserService,
         private rfbLocationService: RfbLocationService,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -31,18 +35,15 @@ export class RfbUserUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ rfbUser }) => {
             this.rfbUser = rfbUser;
         });
-        this.rfbLocationService.query({ filter: 'rfbuser-is-null' }).subscribe(
+        this.userService.query().subscribe(
+            (res: HttpResponse<IUser[]>) => {
+                this.users = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.rfbLocationService.query().subscribe(
             (res: HttpResponse<IRfbLocation[]>) => {
-                if (!this.rfbUser.homeLocationId) {
-                    this.homelocations = res.body;
-                } else {
-                    this.rfbLocationService.find(this.rfbUser.homeLocationId).subscribe(
-                        (subRes: HttpResponse<IRfbLocation>) => {
-                            this.homelocations = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.rfblocations = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -76,6 +77,10 @@ export class RfbUserUpdateComponent implements OnInit {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackUserById(index: number, item: IUser) {
+        return item.id;
     }
 
     trackRfbLocationById(index: number, item: IRfbLocation) {

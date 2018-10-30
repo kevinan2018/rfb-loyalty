@@ -38,7 +38,7 @@ public class RfbBootstrap implements CommandLineRunner {
 
     private void initData() {
         RfbUser rfbUser = new RfbUser();
-        rfbUser.setUsername("Johnny");
+        rfbUser.setUsername("johnny");
         rfbUserRepository.save(rfbUser);
 
         // load data

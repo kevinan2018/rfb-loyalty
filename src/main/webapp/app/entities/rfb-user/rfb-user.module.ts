@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { RfbloyaltySharedModule } from 'app/shared';
+import { RfbloyaltyAdminModule } from 'app/admin/admin.module';
 import {
     RfbUserComponent,
     RfbUserDetailComponent,
@@ -15,7 +16,7 @@ import {
 const ENTITY_STATES = [...rfbUserRoute, ...rfbUserPopupRoute];
 
 @NgModule({
-    imports: [RfbloyaltySharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [RfbloyaltySharedModule, RfbloyaltyAdminModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         RfbUserComponent,
         RfbUserDetailComponent,

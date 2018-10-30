@@ -1,0 +1,33 @@
+// JDL definition for application 'rfbloyalty' generated with command 'jhipster export-jdl'
+
+entity RfbLocation {
+  locationName String,
+  runDayOfWeek Integer
+}
+entity RfbEvent {
+  eventDate LocalDate,
+  eventCode String
+}
+entity RfbEventAttendance {
+  attendanceDate LocalDate
+}
+entity RfbUser {
+  username String
+}
+relationship OneToOne {
+  RfbUser{user} to User
+}
+relationship ManyToOne {
+  RfbUser{homeLocation} to RfbLocation
+}
+
+relationship OneToMany {
+  RfbLocation{rvbevent} to RfbEvent{rfbLocation},
+  RfbEvent{rfbEventAttendance} to RfbEventAttendance{rfbEvent},
+  RfbUser{rfbeventAttendance} to RfbEventAttendance{rfbUser}
+}
+
+dto RfbLocation, RfbEvent, RfbEventAttendance, RfbUser with mapstruct
+paginate RfbLocation, RfbEvent with pagination
+service RfbLocation, RfbEvent, RfbEventAttendance, RfbUser with serviceImpl
+paginate RfbEventAttendance with infinite-scroll

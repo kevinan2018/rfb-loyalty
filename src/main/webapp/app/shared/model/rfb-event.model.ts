@@ -7,6 +7,7 @@ export interface IRfbEvent {
     eventCode?: string;
     rfbLocationId?: number;
     rfbEventAttendances?: IRfbEventAttendance[];
+    rfbLocationName?: string;
 }
 
 export class RfbEvent implements IRfbEvent {
@@ -15,6 +16,7 @@ export class RfbEvent implements IRfbEvent {
         public eventDate?: Moment,
         public eventCode?: string,
         public rfbLocationId?: number,
-        public rfbEventAttendances?: IRfbEventAttendance[]
+        public rfbEventAttendances?: IRfbEventAttendance[],
+        public rfbLocationName?: string
     ) {}
 }

@@ -3,15 +3,19 @@ import { IRfbEventAttendance } from 'app/shared/model//rfb-event-attendance.mode
 export interface IRfbUser {
     id?: number;
     username?: string;
-    homeLocationId?: number;
+    userId?: number;
     rfbeventAttendances?: IRfbEventAttendance[];
+    homeLocationId?: number;
+    homeLocationName?: string;
 }
 
 export class RfbUser implements IRfbUser {
     constructor(
         public id?: number,
         public username?: string,
+        public userId?: number,
+        public rfbeventAttendances?: IRfbEventAttendance[],
         public homeLocationId?: number,
-        public rfbeventAttendances?: IRfbEventAttendance[]
+        public homeLocationName?: string
     ) {}
 }

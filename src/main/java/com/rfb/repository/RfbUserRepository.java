@@ -4,6 +4,8 @@ import com.rfb.domain.RfbUser;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 
 /**
  * Spring Data  repository for the RfbUser entity.
@@ -12,4 +14,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RfbUserRepository extends JpaRepository<RfbUser, Long> {
 
+    Optional<RfbUser> findByUsername(String name);
 }

@@ -63,17 +63,17 @@
   }, {
     "id" : "c34d6dce-cb69-437b-b1c5-333e00842df0",
     "createdTimestamp" : 1540786051610,
-    "username" : "leader",
+    "username" : "johnny",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : true,
-    "firstName" : "Leader",
-    "lastName" : "Leader",
-    "email" : "leader@localhost",
+    "firstName" : "Johnny",
+    "lastName" : "Johnny",
+    "email" : "johnny@localhost",
     "credentials" : [ {
       "type" : "password",
-      "hashedSaltedValue" : "KVekmjlElCeOWY9A8SAzWnaLfABWLGqvi0VQKpgYINUs3e8qdDZFXd4fYw3LPomAtvC6jZAVSPiYGUIrWdu3Eg==",
-      "salt" : "gpSbpdgV3O8PMRBnP3NX/A==",
+      "hashedSaltedValue" : "TqPckWE+XytQjUl90QvURFSPn0/dpumPt3IUUtJLnUGwYSu+f9g858ZM4JcbC0vMcpG8g3eECYDiTKh5hvLq6w==",
+      "salt" : "hp1wKnbgPVEIGRVpBGIuaQ==",
       "hashIterations" : 27500,
       "counter" : 0,
       "algorithm" : "pbkdf2-sha256",
@@ -89,6 +89,6 @@
       "account" : [ "view-profile", "manage-account" ]
     },
     "notBefore" : 0,
-    "groups" : [ "/Organizers" ]
+    "groups" : [ "/Users", "/Organizers" ]
   } ]
 }
