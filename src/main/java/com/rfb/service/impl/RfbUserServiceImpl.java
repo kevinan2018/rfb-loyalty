@@ -88,4 +88,17 @@ public class RfbUserServiceImpl implements RfbUserService {
         log.debug("Request to delete RfbUser : {}", id);
         rfbUserRepository.deleteById(id);
     }
+
+    /**
+     * Get one rfbUser by username.
+     *
+     * @param username the username of the entity
+     * @return the entity
+     */
+    @Override
+    public Optional<RfbUserDTO> findByUsername(String username) {
+        log.debug("Request to get RfbUser by name: {}", username);
+        return rfbUserRepository.findByUsername(username)
+            .map(rfbUserMapper::toDto);
+    }
 }

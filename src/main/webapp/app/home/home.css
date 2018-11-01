@@ -4,8 +4,8 @@ Main page styles
 
 .rfb-home-intro {
     /*display: inline-block;
-    width: 347px;
-    height: 497px;*/
+    width: 347px;*/
+    height: 497px;
     background: url('../../content/images/beer-light.jpg') repeat;
     background-size: contain;
 }
@@ -16,6 +16,7 @@ Main page styles
 }
 .rfb-home-desc {
     padding: 2px;
+    height: 100%;
 }
 .display-4 {
     font-family: 'Walter Turncoat', cursive;

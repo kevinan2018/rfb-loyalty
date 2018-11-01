@@ -35,4 +35,8 @@ export class RfbUserService {
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
+
+    findRfdUserByUsername(username: string) {
+        return this.http.get<IRfbUser>(`${this.resourceUrl}/user/${username}`, { observe: 'response' });
+    }
 }

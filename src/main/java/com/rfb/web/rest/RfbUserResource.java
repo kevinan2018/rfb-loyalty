@@ -115,4 +115,19 @@ public class RfbUserResource {
         rfbUserService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+
+    /**
+     * GET  /rfb-users/user:username : get the "username" rfbUser.
+     *
+     * @param username the username of the rfbUserDTO to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the rfbUserDTO, or with status 404 (Not Found)
+     */
+    @GetMapping("/rfb-users/user/{username}")
+    @Timed
+    public ResponseEntity<RfbUserDTO> getRfbUser(@PathVariable String username) {
+        log.debug("REST request to get RfbUser by name: {}", username);
+        Optional<RfbUserDTO> rfbUserDTO = rfbUserService.findByUsername(username);
+        return ResponseUtil.wrapOrNotFound(rfbUserDTO);
+    }
 }

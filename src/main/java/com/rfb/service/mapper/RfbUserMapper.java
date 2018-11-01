@@ -14,6 +14,7 @@ public interface RfbUserMapper extends EntityMapper<RfbUserDTO, RfbUser> {
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "homeLocation.id", target = "homeLocationId")
     @Mapping(source = "homeLocation.locationName", target = "homeLocationName")
+    @Mapping(source = "user", target = "userDTO")
     RfbUserDTO toDto(RfbUser rfbUser);
 
     @Mapping(source = "userId", target = "user")

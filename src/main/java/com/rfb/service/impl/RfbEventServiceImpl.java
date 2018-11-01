@@ -1,5 +1,7 @@
 package com.rfb.service.impl;
 
+import com.rfb.domain.RfbLocation;
+import com.rfb.repository.RfbLocationRepository;
 import com.rfb.service.RfbEventService;
 import com.rfb.domain.RfbEvent;
 import com.rfb.repository.RfbEventRepository;
@@ -13,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 /**
@@ -28,9 +31,13 @@ public class RfbEventServiceImpl implements RfbEventService {
 
     private RfbEventMapper rfbEventMapper;
 
-    public RfbEventServiceImpl(RfbEventRepository rfbEventRepository, RfbEventMapper rfbEventMapper) {
+    private final RfbLocationRepository rfbLocationRepository;
+
+    public RfbEventServiceImpl(RfbEventRepository rfbEventRepository, RfbEventMapper rfbEventMapper,
+                               RfbLocationRepository rfbLocationRepository) {
         this.rfbEventRepository = rfbEventRepository;
         this.rfbEventMapper = rfbEventMapper;
+        this.rfbLocationRepository = rfbLocationRepository;
     }
 
     /**
@@ -86,5 +93,22 @@ public class RfbEventServiceImpl implements RfbEventService {
     public void delete(Long id) {
         log.debug("Request to delete RfbEvent : {}", id);
         rfbEventRepository.deleteById(id);
+    }
+
+    /**
+     * Get the rfbevent by today and location
+     * @param locationId the location id
+     * @return the entity
+     */
+    @Override
+    public Optional<RfbEventDTO> findByTodayAndLocation(Long locationId) {
+        log.debug("Request to get RfbEvent by location: {}", locationId);
+        Optional<RfbLocation> location = rfbLocationRepository.findById(locationId);
+        if (location.isPresent()) {
+            return rfbEventRepository.findByRfbLocationAndEventDate(location.get(), LocalDate.now())
+                .map(rfbEventMapper::toDto);
+        } else {
+            return Optional.empty();
+        }
     }
 }

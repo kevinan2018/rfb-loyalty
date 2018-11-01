@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 
 /**
@@ -15,5 +16,5 @@ import java.time.LocalDate;
 @Repository
 public interface RfbEventRepository extends JpaRepository<RfbEvent, Long> {
 
-    RfbEvent findByRfbLocationAndEventDate(RfbLocation location, LocalDate now);
+    Optional<RfbEvent> findByRfbLocationAndEventDate(RfbLocation location, LocalDate now);
 }

@@ -1,5 +1,7 @@
 package com.rfb.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -17,6 +19,9 @@ public class RfbUserDTO implements Serializable {
     private Long homeLocationId;
 
     private String homeLocationName;
+
+    @JsonProperty("jhiUser")
+    private UserDTO userDTO;
 
     public Long getId() {
         return id;
@@ -48,6 +53,14 @@ public class RfbUserDTO implements Serializable {
 
     public void setHomeLocationId(Long rfbLocationId) {
         this.homeLocationId = rfbLocationId;
+    }
+
+    public UserDTO getUserDTO() {
+        return userDTO;
+    }
+
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 
     @Override

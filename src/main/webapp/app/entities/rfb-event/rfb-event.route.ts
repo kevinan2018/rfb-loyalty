@@ -34,7 +34,7 @@ export const rfbEventRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_ORGANIZER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_ORGANIZER', 'ROLE_USER'],
             defaultSort: 'id,asc',
             pageTitle: 'RfbEvents'
         },

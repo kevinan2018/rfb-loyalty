@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RfbEventCodeService {
@@ -38,9 +39,9 @@ public class RfbEventCodeService {
 
         rfbLocations.forEach(location -> {
             log.debug("Checking Events for location: " + location.getId());
-            RfbEvent existingEvent = rfbEventRepository.findByRfbLocationAndEventDate(location, LocalDate.now());
+            Optional<RfbEvent> existingEvent = rfbEventRepository.findByRfbLocationAndEventDate(location, LocalDate.now());
 
-            if (existingEvent == null) {
+            if (!existingEvent.isPresent()) {
                 log.debug("Event Not Found, Creating Event");
                 //create event for day
                 RfbEvent newEvent = new RfbEvent();

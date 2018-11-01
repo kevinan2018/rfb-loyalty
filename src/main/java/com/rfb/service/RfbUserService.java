@@ -40,4 +40,12 @@ public interface RfbUserService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    /**
+     * Get the "username" rfbUser.
+     *
+     * @param id the id of the entity
+     * @return the entity
+     */
+    Optional<RfbUserDTO> findByUsername(String username);
 }

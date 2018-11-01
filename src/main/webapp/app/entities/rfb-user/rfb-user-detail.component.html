@@ -19,6 +19,12 @@
                         <a [routerLink]="['/rfb-location', rfbUser.homeLocationId, 'view']">{{rfbUser.homeLocationName}}</a>
                     </div>
                 </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <div *ngIf="rfbUser.userId">
+                        <span>{{rfbUser.jhiUser.email}}</span>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"
